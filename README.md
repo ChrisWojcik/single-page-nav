@@ -51,6 +51,6 @@ The functionality of this plugin is admittedly similar to some others. But it wa
 my first plugin, so be kind. Here are a few links to such plugins if you find them 
 more helpful.
 
-* [onePageNav plugin] https://github.com/davist11/jQuery-One-Page-Nav
-* [scrollTo plugin] https://github.com/flesler/jquery.scrollTo
-* [jQuery Waypoints] https://github.com/imakewebthings/jquery-waypoints
+* [onePageNav plugin] (https://github.com/davist11/jQuery-One-Page-Nav)
+* [scrollTo plugin] (https://github.com/flesler/jquery.scrollTo)
+* [jQuery Waypoints] (https://github.com/imakewebthings/jquery-waypoints)
