@@ -14,8 +14,8 @@ http://chriswojcik.net/demos/single-page-nav/
 
 ## Features
 
-* The coordinates of each target element are determined dynamically on each scroll. 
-Resizing the browser or appending content to a section will not break the plugin.
+* The coordinates of each target element are determined dynamically, resizing the 
+browser or appending content to a section will not break the plugin.
 * Configurable options.
 
 ## Sample Use
