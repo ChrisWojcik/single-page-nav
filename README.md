@@ -17,8 +17,6 @@ http://chriswojcik.net/demos/single-page-nav/
 * The coordinates of each target element are determined dynamically, resizing the 
 browser or appending content to a section will not break the plugin.
 * Configurable options.
-* Ability to filter out links (such as external urls)
-* Callbacks that fire before scrolling begins and after it completes
 
 ## Sample Use
 ```js
@@ -36,6 +34,11 @@ in the nav bar will change.
 the active section on the page.
 * 'updateHash' - If true, updates the browser's url to include the hash when clicking
 on the links. (Default is false)
+* 'filter' - By default, the plugin will be applied to all links within the container,
+use this to filter out certain links using jquery's built in filter method (e.g. ':not(.external)')
+* 'beforeStart' - This function will fire when a user clicks on a link but before the scrolling
+animation starts
+* 'onComplete' - This function will fire when the scrolling animation completes
 
 ## Limitations
 
