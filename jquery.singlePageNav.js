@@ -3,7 +3,7 @@
  * Copyright (c) 2013 Chris Wojcik <hello@chriswojcik.net>
  * Dual licensed under MIT and GPL.
  * @author Chris Wojcik
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 // Utility
@@ -27,11 +27,15 @@ if (typeof Object.create !== 'function') {
             this.container = container;            
             this.$container = $(container);
             this.$links = this.$container.find('a');
+
+            if (this.options.filter !== '') {
+                this.$links = this.$links.filter(this.options.filter);
+            }
+
             this.$window = $(window);
-            this.$body = $('html, body');
+            this.$body = $('body');
             
-            this.$container.on('click.singlePageNav', 'a', 
-                $.proxy(this.handleClick, this));
+            this.$links.on('click.singlePageNav', $.proxy(this.handleClick, this));
 
             this.didScroll = false;
             this.checkPosition();
@@ -41,32 +45,49 @@ if (typeof Object.create !== 'function') {
         handleClick: function(e) {
             var self  = this,
                 link  = e.currentTarget,
-                $elem = $(link.hash);               
+                $elem = $(link.hash);  
+
+            e.preventDefault();             
 
             if ($elem.length) { // Make sure the target elem exists
+
                 
                 // Prevent active link from cycling during the scroll
                 self.clearTimer();
+
+                // Before scrolling starts
+                if (typeof self.options.beforeStart === 'function') {
+                    self.options.beforeStart();
+                }
+
                 self.setActiveLink(link.hash);
                 
-                self.scrollTo($elem, function() {                    
+                self.scrollTo($elem, function() { 
+                 
                     if (self.options.updateHash) {
                         document.location.hash = link.hash;
                     }
+
                     self.setTimer();
+
+                    // After scrolling ends
+                    if (typeof self.options.onComplete === 'function') {
+                        self.options.onComplete();
+                    }
                 });                            
             }     
-
-            e.preventDefault();
         },
         
         scrollTo: function($elem, callback) {
-            var target = this.getCoords($elem).top;
+            var self = this;
+            var target = self.getCoords($elem).top;
             
-            this.$body.stop().animate(
+            $('html, body').stop();
+
+            self.$body.animate(
                 {scrollTop: target}, 
                 { 
-                    duration: this.options.speed, 
+                    duration: self.options.speed, 
                     complete: (typeof callback === 'function') ? callback : null
                 }
             );
@@ -147,7 +168,10 @@ if (typeof Object.create !== 'function') {
         threshold: 120,
         speed: 400,
         currentClass: 'current',
-        updateHash: false
+        updateHash: false,
+        filter: '',
+        onComplete: false,
+        beforeStart: false
     };
     
 })(jQuery, window, document);
