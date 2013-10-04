@@ -17,6 +17,8 @@ http://chriswojcik.net/demos/single-page-nav/
 * The coordinates of each target element are determined dynamically, resizing the 
 browser or appending content to a section will not break the plugin.
 * Configurable options.
+* Ability to filter out links (such as external urls)
+* Callbacks that fire before scrolling begins and after it completes
 
 ## Sample Use
 ```js
@@ -43,7 +45,6 @@ as laid out on the page or unexpected behavior will occur.
 ## TODO (future updates)
 
 * Add support for horizontal scrolling sites.
-* Provide ability to filter out links, such as external urls
 
 ## References
 
