@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Single Page Nav Demo</title>
 
         <style>
@@ -67,7 +68,11 @@
             
             @media all and (max-width : 64em) { /* 1024px */
                 body {
-                    font-size: 80%;
+                    font-size: 90%;
+                }
+
+                .single-page-nav a {
+                    font-size: 1.375em;
                 }
                 
                 .section {
@@ -75,14 +80,27 @@
                 }
             }
             
-            @media all and (max-width : 30em) { /* 480px */
+            @media all and (max-width : 37.5em) { /* 600px */
                 
                 .single-page-nav a {
-                    font-size: 98%;
+                    font-size: 125%;
+                }
+
+                .single-page-nav ul {
+                    width: 95%;
+                }
+
+                .single-page-nav li {
+                    width: 50%;
+                    padding: 0.5em 0;
                 }
                 
                 .section {
                     width: 95%;
+                }
+
+                #section1 {
+                    padding-top: 7.5em;
                 }
             }
         </style>
@@ -93,7 +111,7 @@
                 <li><a href="#section1">Section 1</a></li>
                 <li><a href="#section2">Section 2</a></li>
                 <li><a href="#section3">Section 3</a></li>
-                <li><a href="#section4">Section 4</a></li>
+                <li><a class="external" href="http://google.com" target="_blank">Google</a></li>
             </ul>
         </div>
         <div class="section" id="section1">
@@ -112,18 +130,24 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget enim eu mi volutpat ullamcorper et ut magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus nec sagittis massa. Vivamus ut tellus tellus. Donec in odio eget elit suscipit tincidunt ac eu lacus. Proin interdum sagittis diam, eu aliquam libero tristique at. Fusce elementum, velit eget consequat facilisis, nunc tellus condimentum velit, bibendum iaculis lectus tellus sed sem. Vivamus dapibus tellus at mauris mollis iaculis. Nunc facilisis augue a felis malesuada accumsan bibendum augue luctus. Curabitur pharetra, sapien dapibus tempor interdum, purus tortor aliquam nisi, ut consectetur urna ipsum et quam. Nulla sed tellus urna. </p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget enim eu mi volutpat ullamcorper et ut magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus nec sagittis massa. Vivamus ut tellus tellus. Donec in odio eget elit suscipit tincidunt ac eu lacus. Proin interdum sagittis diam, eu aliquam libero tristique at. Fusce elementum, velit eget consequat facilisis, nunc tellus condimentum velit, bibendum iaculis lectus tellus sed sem. Vivamus dapibus tellus at mauris mollis iaculis. Nunc facilisis augue a felis malesuada accumsan bibendum augue luctus. Curabitur pharetra, sapien dapibus tempor interdum, purus tortor aliquam nisi, ut consectetur urna ipsum et quam. Nulla sed tellus urna. </p>
         </div>
-        <div class="section" id="section4">
-            <h1>Section 4</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget enim eu mi volutpat ullamcorper et ut magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus nec sagittis massa. Vivamus ut tellus tellus. Donec in odio eget elit suscipit tincidunt ac eu lacus. Proin interdum sagittis diam, eu aliquam libero tristique at. Fusce elementum, velit eget consequat facilisis, nunc tellus condimentum velit, bibendum iaculis lectus tellus sed sem. Vivamus dapibus tellus at mauris mollis iaculis. Nunc facilisis augue a felis malesuada accumsan bibendum augue luctus. Curabitur pharetra, sapien dapibus tempor interdum, purus tortor aliquam nisi, ut consectetur urna ipsum et quam. Nulla sed tellus urna. </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget enim eu mi volutpat ullamcorper et ut magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus nec sagittis massa. Vivamus ut tellus tellus. Donec in odio eget elit suscipit tincidunt ac eu lacus. Proin interdum sagittis diam, eu aliquam libero tristique at. Fusce elementum, velit eget consequat facilisis, nunc tellus condimentum velit, bibendum iaculis lectus tellus sed sem. Vivamus dapibus tellus at mauris mollis iaculis. Nunc facilisis augue a felis malesuada accumsan bibendum augue luctus. Curabitur pharetra, sapien dapibus tempor interdum, purus tortor aliquam nisi, ut consectetur urna ipsum et quam. Nulla sed tellus urna. </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget enim eu mi volutpat ullamcorper et ut magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus nec sagittis massa. Vivamus ut tellus tellus. Donec in odio eget elit suscipit tincidunt ac eu lacus. Proin interdum sagittis diam, eu aliquam libero tristique at. Fusce elementum, velit eget consequat facilisis, nunc tellus condimentum velit, bibendum iaculis lectus tellus sed sem. Vivamus dapibus tellus at mauris mollis iaculis. Nunc facilisis augue a felis malesuada accumsan bibendum augue luctus. Curabitur pharetra, sapien dapibus tempor interdum, purus tortor aliquam nisi, ut consectetur urna ipsum et quam. Nulla sed tellus urna. </p>
-        </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="jquery-1.9.1.min.js"><\/script>')</script>
         <script src="jquery.singlePageNav.min.js"></script>
         <script>
+
+            // Prevent console.log from generating errors in IE for the purposes of the demo
+            if ( ! window.console ) console = { log: function(){} };
+
+            // The actual plugin
             $('.single-page-nav').singlePageNav({
-                offset: $('.single-page-nav').outerHeight()
+                offset: $('.single-page-nav').outerHeight(),
+                filter: ':not(.external)',
+                beforeStart: function() {
+                    console.log('begin scrolling');
+                },
+                onComplete: function() {
+                    console.log('done scrolling');
+                }
             });
         </script>
     </body>
