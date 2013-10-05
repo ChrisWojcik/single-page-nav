@@ -33,7 +33,7 @@ if (typeof Object.create !== 'function') {
             }
 
             this.$window = $(window);
-            this.$body = $('body');
+            this.$htmlbody = $('html, body');
             
             this.$links.on('click.singlePageNav', $.proxy(this.handleClick, this));
 
@@ -81,14 +81,18 @@ if (typeof Object.create !== 'function') {
         scrollTo: function($elem, callback) {
             var self = this;
             var target = self.getCoords($elem).top;
-            
-            $('html, body').stop();
+            var called = false;
 
-            self.$body.animate(
+            self.$htmlbody.stop().animate(
                 {scrollTop: target}, 
                 { 
                     duration: self.options.speed, 
-                    complete: (typeof callback === 'function') ? callback : null
+                    complete: function() {
+                        if (typeof callback === 'function' && !called) {
+                            callback();
+                        }
+                        called = true;
+                    }
                 }
             );
         },
