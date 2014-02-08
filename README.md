@@ -30,6 +30,7 @@ for accounting for the height of a "sticky navigation bar", see the demo)
 * 'threshold' - The distance above each section in pixels when the "current" link
 in the nav bar will change.
 * 'speed' - The animated scroll speed in milliseconds.
+* 'easing' - The easing function to use with the animation (Default is 'swing').
 * 'currentClass' - The class to apply to the link in the nav bar corresponding to
 the active section on the page.
 * 'updateHash' - If true, updates the browser's url to include the hash when clicking
