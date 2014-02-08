@@ -86,7 +86,8 @@ if (typeof Object.create !== 'function') {
             self.$htmlbody.stop().animate(
                 {scrollTop: target}, 
                 { 
-                    duration: self.options.speed, 
+                    duration: self.options.speed,
+                    easing: self.options.easing, 
                     complete: function() {
                         if (typeof callback === 'function' && !called) {
                             callback();
@@ -172,6 +173,7 @@ if (typeof Object.create !== 'function') {
         threshold: 120,
         speed: 400,
         currentClass: 'current',
+        easing: 'swing',
         updateHash: false,
         filter: '',
         onComplete: false,
