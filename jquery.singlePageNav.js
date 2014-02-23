@@ -65,7 +65,12 @@ if (typeof Object.create !== 'function') {
                 self.scrollTo($elem, function() { 
                  
                     if (self.options.updateHash) {
-                        document.location.hash = link.hash;
+                         if (history.pushState) {
+                            history.pushState(null,null, link.hash)
+                        }
+                        else {
+                            location.hash = link.hash;
+                        }
                     }
 
                     self.setTimer();
