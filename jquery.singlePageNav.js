@@ -45,7 +45,8 @@ if (typeof Object.create !== 'function') {
         handleClick: function(e) {
             var self  = this,
                 link  = e.currentTarget,
-                $elem = $(link.hash);  
+                $elem = $(link.hash),
+                scrollLocation;  
 
             e.preventDefault();             
 
@@ -61,12 +62,15 @@ if (typeof Object.create !== 'function') {
                 }
 
                 self.setActiveLink(link.hash);
+
+                // Change hash but quickly reset the scrollTop position to prevent "jump"
+                if (self.options.updateHash) {
+                    scrollLocation = self.$window.scrollTop();
+                    document.location.hash = link.hash;
+                    self.$window.scrollTop(scrollLocation);
+                }
                 
                 self.scrollTo($elem, function() { 
-                 
-                    if (self.options.updateHash) {
-                        document.location.hash = link.hash;
-                    }
 
                     self.setTimer();
 
@@ -134,6 +138,7 @@ if (typeof Object.create !== 'function') {
         
         setActiveLink: function(href) {
             var $activeLink = this.$container.find("a[href='" + href + "']");
+            var scrollLocation;
                             
             if (!$activeLink.hasClass(this.options.currentClass)) {
                 this.$links.removeClass(this.options.currentClass);
