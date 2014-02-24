@@ -33,8 +33,7 @@ in the nav bar will change.
 * 'easing' - The easing function to use with the animation (Default is 'swing').
 * 'currentClass' - The class to apply to the link in the nav bar corresponding to
 the active section on the page.
-* 'updateHash' - If true, updates the browser's url to include the hash when clicking
-on the links. (Default is false)
+* 'updateHash' - In browsers that support the history object, update the url's hash when clicking on the links (Default is false)
 * 'filter' - By default, the plugin will be applied to all links within the container,
 use this to filter out certain links using jquery's built in filter method (e.g. ':not(.external)')
 * 'beforeStart' - This function will fire when a user clicks on a link but before the scrolling

@@ -45,13 +45,12 @@ if (typeof Object.create !== 'function') {
         handleClick: function(e) {
             var self  = this,
                 link  = e.currentTarget,
-                $elem = $(link.hash),
+                $elem = $(link.hash);
 
             e.preventDefault();             
 
             if ($elem.length) { // Make sure the target elem exists
 
-                
                 // Prevent active link from cycling during the scroll
                 self.clearTimer();
 
@@ -63,14 +62,9 @@ if (typeof Object.create !== 'function') {
                 self.setActiveLink(link.hash);
                 
                 self.scrollTo($elem, function() { 
-                    
-                    if (self.options.updateHash) {
-                         if (history.pushState) {
-                            history.pushState(null,null, link.hash)
-                        }
-                        else {
-                            location.hash = link.hash;
-                        }
+
+                    if (self.options.updateHash && history.pushState) {
+                        history.pushState(null,null, link.hash);
                     }
 
                     self.setTimer();
