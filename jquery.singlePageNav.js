@@ -1,9 +1,9 @@
 /**
  * Single Page Nav Plugin
- * Copyright (c) 2013 Chris Wojcik <hello@chriswojcik.net>
+ * Copyright (c) 2014 Chris Wojcik <hello@chriswojcik.net>
  * Dual licensed under MIT and GPL.
  * @author Chris Wojcik
- * @version 1.1.0
+ * @version 1.2.0
  */
 
 // Utility
@@ -132,7 +132,7 @@ if (typeof Object.create !== 'function') {
         },
         
         setActiveLink: function(href) {
-            var $activeLink = this.$container.find("a[href='" + href + "']");
+            var $activeLink = this.$container.find("a[href$='" + href + "']");
                             
             if (!$activeLink.hasClass(this.options.currentClass)) {
                 this.$links.removeClass(this.options.currentClass);
