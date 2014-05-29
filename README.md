@@ -48,6 +48,7 @@ as laid out on the page or unexpected behavior will occur.
 ## TODO (future updates)
 
 * Add support for horizontal scrolling sites.
+* Determine best way to handle multiple instances on the same page.
 
 ## References
 
