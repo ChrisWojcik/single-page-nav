@@ -122,7 +122,9 @@ if (typeof Object.create !== 'function') {
         checkPosition: function() {
             var scrollPos = this.$window.scrollTop();
             var currentSection = this.getCurrentSection(scrollPos);
-            this.setActiveLink(currentSection);
+            if(currentSection!==null) {
+                this.setActiveLink(currentSection);
+            }
         },        
         
         getCoords: function($elem) {
@@ -155,8 +157,8 @@ if (typeof Object.create !== 'function') {
                 }
             }
             
-            // The current section or the first link
-            return section || this.$links[0].hash;
+            // The current section or the first link if it is found
+            return section || ((this.$links.length===0) ? (null) : (this.$links[0].hash));
         }
     };
     
