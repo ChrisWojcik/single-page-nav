@@ -49,6 +49,7 @@ as laid out on the page or unexpected behavior will occur.
 
 * Add support for horizontal scrolling sites.
 * Determine best way to handle multiple instances on the same page.
+* Add support for BOWER.
 
 ## References
 
