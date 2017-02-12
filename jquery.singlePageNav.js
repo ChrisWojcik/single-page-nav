@@ -156,6 +156,16 @@ if (typeof Object.create !== 'function') {
                     }
                 }
             }
+
+            // get the last section if we reached the bottom of the page 
+            // before reaching the last section top
+            var pageBottom = $(document).height() - $(window).height();
+            if ( scrollPos == pageBottom ){
+                var numberOfLinks = this.$links.length;
+                if ( numberOfLinks > 0 ){
+                    section = this.$links[ numberOfLinks - 1].hash;
+                }
+            }
             
             // The current section or the first link if it is found
             return section || ((this.$links.length===0) ? (null) : (this.$links[0].hash));
